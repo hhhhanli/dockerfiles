@@ -9,5 +9,4 @@ RUN cd nginx*; ./configure --prefix=/usr/local/nginx --with-http_ssl_module --wi
 RUN cd nginx*; make & make install
 RUN ln -s /usr/local/nginx/sbin/nginx /usr/sbin/
 RUN rm -rf nginx* 
-COPY watch.sh ./
-ENTRYPOINT sh watch.sh
+CMD ["nginx", "-g", "daemon off;"]
